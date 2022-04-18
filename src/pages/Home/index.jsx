@@ -11,11 +11,11 @@ const Home = () => {
         <Link to="/user-register">
           {" "}
           <button onClick={() => history.push("/user-register")}>
-            Fazer Resgistro
+            Registrar-se
           </button>{" "}
         </Link>
       </div>
     </div>
   );
-}
+};
 export default Home;
