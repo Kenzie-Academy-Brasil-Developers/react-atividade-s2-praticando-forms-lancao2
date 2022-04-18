@@ -2,6 +2,7 @@ import "./style.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import Logo from "../../svg/Logo02.svg";
 
 const Register = () => {
   const BrazilStates = [
@@ -35,11 +36,10 @@ const Register = () => {
   ];
 
   const formSchema = yup.object().shape({
-    User_name: yup
+    Name: yup
       .string()
       .required("Este campo é obrigatorio")
-      .min(18)
-      .matches(/^.{18,}$/, "Caracteres insufcientes"),
+      .min(18, "Caracteres insufcientes"),
     Email: yup
       .string()
       .required("Este campo é obrigatorio")
@@ -52,10 +52,10 @@ const Register = () => {
         /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
         "Senha fraca"
       ),
-    Comfirmar_Senha: yup
+    ComfirmarSenha: yup
       .string()
       .required("Este campo é obrigatorio")
-      .oneOf([yup.ref("Senha"), null]),
+      .oneOf([yup.ref("Senha"), null], "Senhas divergentes"),
     Endereço: yup.string().required("Este campo é obrigatorio"),
     Cidade: yup.string().required("Este campo é obrigatorio"),
     Estado: yup.string().required("Este campo é obrigatorio"),
@@ -70,22 +70,49 @@ const Register = () => {
   };
   console.log(errors);
   return (
-    <div>
+    <div className="bgForm">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input placeholder="Nome de usuario" {...register("User_Name")} />
-        <input placeholder="Email" {...register("Email")} />
-        <input placeholder="Senha" {...register("Senha")} />
-        <input placeholder="Comfirmar Senha" {...register("Comfirmar_Senha")} />
-        <input placeholder="Endereço" {...register("Endereço")} />
-        <input placeholder="Cidade" {...register("Cidade")} />
-        <select {...register("Estado")}>
-          <option value="" disabled selected>
-            Selecione seu Estado
-          </option>
-          {BrazilStates.map((element) => (
-            <option value={element}>{element}</option>
-          ))}
-        </select>
+        <img src={Logo} alt="Logo AlexLan.png" />
+        <div className="inputs_form">
+          <div>
+            <input placeholder="Nome de usuario" {...register("Name")} />
+            <div className="error">{errors.Name?.message}</div>
+          </div>
+          <div>
+            <input placeholder="Email" {...register("Email")} />
+            <div className="error">{errors.Email?.message}</div>
+          </div>
+          <div>
+            <input placeholder="Senha" {...register("Senha")} />
+            <div className="error">{errors.Senha?.message}</div>
+          </div>
+          <div>
+            <input
+              placeholder="Comfirmar Senha"
+              {...register("ComfirmarSenha")}
+            />
+            <div className="error">{errors.ComfirmarSenha?.message}</div>
+          </div>
+          <div>
+            <input placeholder="Endereço" {...register("Endereço")} />
+            <div className="error">{errors.Endereço?.message}</div>
+          </div>
+          <div>
+            <input placeholder="Cidade" {...register("Cidade")} />
+            <div className="error">{errors.Cidade?.message}</div>
+          </div>
+          <div>
+            <select {...register("Estado")}>
+              <div className="error">{errors.Estado?.message}</div>
+              <option value="" disabled selected>
+                Selecione seu Estado
+              </option>
+              {BrazilStates.map((element) => (
+                <option value={element}>{element}</option>
+              ))}
+            </select>
+          </div>
+        </div>
         <button type="submit">Enviar Resgistro</button>
       </form>
     </div>
