@@ -1,0 +1,78 @@
+.bgForm {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../imgs/abstract-urban-night-light-bokeh-defocused-background.jpg");
+  background-size: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  background: rgba(196, 196, 196, 0.075);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-radius: 10px;
+
+  width: 35vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+form img {
+  height: 15%;
+}
+.inputs_form {
+  width: 75%;
+  height: 70%;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.inputs_form div {
+  height: 15%;
+  width: 48%;
+}
+input {
+  width: 95%;
+  height: 50%;
+  padding-left: 5px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgb(13, 1, 80);
+  color: aliceblue;
+  font-size: 15px;
+}
+
+.error {
+  width: 100% !important;
+  font-size: 12px;
+  color: rgb(190, 0, 0);
+}
+
+select {
+  background-color: rgba(255, 255, 255, 0);
+  height: 60%;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+.bgForm button {
+  height: 10%;
+  width: 80%;
+  border: none;
+  background: rgba(196, 196, 196, 0);
+
+  color: rgb(0, 0, 0);
+  font-size: 120%;
+  font-weight: bold;
+  cursor: pointer;
+}
+.bgForm button:hover {
+  background: rgba(255, 255, 255, 0.219);
+  transition-duration: 0.5s;
+}
