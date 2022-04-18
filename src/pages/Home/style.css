@@ -1,0 +1,50 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../imgs/abstract-urban-night-light-bokeh-defocused-background.jpg");
+  background-size: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.conteiner_login {
+  background: rgba(196, 196, 196, 0.075);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-radius: 10px;
+
+  width: 35vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.conteiner_login img {
+  width: 50%;
+}
+.conteiner_login hr {
+  width: 80%;
+  border-color: rgba(112, 112, 112, 0.411);
+}
+
+.conteiner_login a {
+  width: 100%;
+  height: 7.5%;
+}
+
+.conteiner_login button {
+  height: 200%;
+  width: 100%;
+  border: none;
+  background: rgba(196, 196, 196, 0);
+
+  color: rgb(0, 0, 0);
+  font-size: 150%;
+  font-weight: bold;
+  cursor: pointer;
+}
+.conteiner_login button:hover {
+  background: rgba(255, 255, 255, 0.219);
+  transition-duration: 1s;
+}

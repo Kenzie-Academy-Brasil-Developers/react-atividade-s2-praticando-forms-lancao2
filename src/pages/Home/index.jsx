@@ -4,8 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 const Home = () => {
   const history = useHistory();
   return (
-    <div>
-      <div className="Conteiner">
+    <div className="login">
+      <div className="conteiner_login">
         <img src={Logo} alt="Logo AlexLan.png" />
         <hr />
         <Link to="/user-register">
