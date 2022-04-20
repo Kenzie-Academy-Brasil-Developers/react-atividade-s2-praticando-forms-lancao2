@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Logo from "../../svg/Logo02.svg";
+import { useHistory } from "react-router-dom";
 
-const Register = () => {
+const Register = ({ setUserLoged }) => {
   const BrazilStates = [
     "AC - Acre",
     "AL - Alagoas",
@@ -34,6 +35,8 @@ const Register = () => {
     "SE - Sergipe",
     "TO - Tocantins",
   ];
+
+  const history = useHistory();
 
   const formSchema = yup.object().shape({
     Name: yup
@@ -66,9 +69,9 @@ const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
   const onSubmit = (data) => {
-    console.log("oi");
+    setUserLoged(data);
+    history.push("/page");
   };
-  console.log(errors);
   return (
     <div className="bgForm">
       <form onSubmit={handleSubmit(onSubmit)}>
